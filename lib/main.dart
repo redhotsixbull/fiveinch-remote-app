@@ -1,8 +1,9 @@
 import 'package:five_inch_remote_app/finger_print.dart';
+import 'package:five_inch_remote_app/pattern/main.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(PatternTest());
 }
 
 class MyApp extends StatelessWidget {
