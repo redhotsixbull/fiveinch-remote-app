@@ -17,6 +17,15 @@ class _DrawerPageState extends State<DrawerPage>
       body: Container(
         width: double.infinity,
         height: 600,
+        child: Column(
+          children: [
+            Text("123"),
+            Text("123"),
+            Text("123"),
+            Text("123"),
+            
+          ],
+        ),
       ),
     );
   }
