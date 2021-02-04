@@ -23,7 +23,6 @@ class _DrawerPageState extends State<DrawerPage>
             Text("123"),
             Text("123"),
             Text("123"),
-            
           ],
         ),
       ),
