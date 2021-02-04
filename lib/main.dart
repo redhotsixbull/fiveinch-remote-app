@@ -1,9 +1,10 @@
 import 'file:///D:/fiveinchremoteapp/lib/fingerprint/finger_print.dart';
+import 'package:five_inch_remote_app/main_page.dart';
 import 'package:five_inch_remote_app/pattern/main.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(PatternTest());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: FingerPrint(),
+      home: MainPage(),
     );
   }
 }
