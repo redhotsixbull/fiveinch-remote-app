@@ -65,6 +65,7 @@ class _MainPageState extends State<MainPage> {
                         color: Colors.green,
                       ),
                       Divider(),
+                      Divider(),
                       Container(
                         height: 100,
                         width: 100,
