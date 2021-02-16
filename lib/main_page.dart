@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 
 class MainPage extends StatefulWidget {
   @override
@@ -9,94 +8,87 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  bool isBasic = false;
   @override
   Widget build(BuildContext context) {
     double widthV = MediaQuery.of(context).size.width;
     double heightV = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.black,
+      //backgroundColor: Colors.black,
       body: SafeArea(
         child: Container(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              powerButton(),
-              logo(),
+              powerButton,
+              logo,
               userSet(),
               SizedBox(
                 height: 20,
               ),
-              mainSector(heightV),
+              isBasic?mainSector(heightV):easyMode(heightV),
             ],
           ),
         ),
       ),
-      floatingActionButton: Container(
-          height: 55,
-          width: double.infinity,
-          decoration: BoxDecoration(
+      floatingActionButton: InkWell(
+        onTap: (){
+          setState(() {
+            isBasic = !isBasic;
+          });
+        },
+        child: Container(
+            height: 55,
+            width: double.infinity,
             color: Color(0xff272727),
-            borderRadius: BorderRadius.only(
-            ),
-          ),
-          child: Center(
-              child: Icon(
-                Icons.arrow_upward_rounded,
-                size: 40,
-                color: Colors.white,
-              ))),
+            child: Center(
+                child: Icon(
+              Icons.arrow_upward_rounded,
+              size: 40,
+              color: Colors.white,
+            ))),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
-  Widget logo(){
-    return Container(
-      width: double.infinity,
-      height: 50,
-      child: Stack(
-        children: [
-          Positioned(
-            left: 20,
-            child: Container(
-              color: Colors.grey,
-              height: 50,
-              width: 112,
-              child: Text('COSMO'),
+  Widget powerButton = Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      Container(
+          height: 80,
+          width: 80,
+          decoration: BoxDecoration(
+            color: Color(0xffff453a),
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(20.0),
             ),
           ),
-        ],
+          child: Center(
+              child: Icon(
+            Icons.bluetooth,
+            size: 40,
+            color: Colors.white,
+          ))),
+    ],
+  );
+
+  Widget logo = Container(
+    margin: EdgeInsets.symmetric(horizontal: 25),
+    color: Colors.grey,
+    height: 50,
+    width: 112,
+    child: Center(
+      child: Text(
+        'COSMO',
+        style: TextStyle(fontSize: 30),
       ),
-    );
-  }
+    ),
+  );
 
-  Widget powerButton(){
+  Widget userSet() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Container(
-          child: Container(
-              height: 80,
-              width: 80,
-              decoration: BoxDecoration(
-                color: Color(0xffff453a),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20.0),
-                ),
-              ),
-              child: Center(
-                  child: Icon(
-                    Icons.bluetooth,
-                    size: 40,
-                    color: Colors.white,
-                  ))),
-        ),
-      ],
-    );
-  }
-
-  Widget userSet(){
-    return  Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -104,40 +96,18 @@ class _MainPageState extends State<MainPage> {
           padding: EdgeInsets.only(left: 25),
           child: Text(
             '게스트 님',
-            style:
-            TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         Container(
           padding: EdgeInsets.only(right: 20),
           child: Row(
             children: [
-              Container(
-                  height: 50,
-                  width: 50,
-                  color: Color(0xFF272727),
-                  child: Icon(
-                    Icons.star,
-                    color: Colors.white,
-                  )),
-              SizedBox(width: 5.0),
-              Container(
-                  height: 50,
-                  width: 50,
-                  color: Color(0xFF272727),
-                  child: Icon(
-                    Icons.star,
-                    color: Colors.white,
-                  )),
-              SizedBox(width: 5.0),
-              Container(
-                  height: 50,
-                  width: 50,
-                  color: Color(0xFF272727),
-                  child: Icon(
-                    Icons.star,
-                    color: Colors.white,
-                  )),
+              _buildSmallIconCard(Icons.star),
+              SizedBox(width: 10.0),
+              _buildSmallIconCard(Icons.star),
+              SizedBox(width: 10.0),
+              _buildSmallIconCard(Icons.star),
             ],
           ),
         ),
@@ -145,17 +115,29 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget mainSector(double heightV){
-    return   Container(
+  Container _buildSmallIconCard(IconData icon) {
+    return Container(
+      height: 50,
+      width: 50,
+      color: Color(0xFF272727),
+      child: Icon(
+        icon,
+        color: Colors.white,
+      ),
+    );
+  }
+
+  Widget mainSector(double heightV) {
+    return Container(
       width: double.infinity,
       height: heightV - 264,
       child: Stack(
         children: [
           Align(
-            alignment: Alignment(-7, 0),
+            alignment: Alignment(-4, 0),
             child: Container(
               width: 355,
-              height:459,
+              height: 459,
               child: Image.asset("images/img_chair.jpg"),
             ),
           ),
@@ -172,7 +154,16 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget _categoryList(){
+  Widget easyMode(double heightV) {
+    return Container(
+      width: double.infinity,
+      height: heightV - 264,
+      color: Colors.white,
+      child: Text("123"),
+    );
+  }
+
+  Widget _categoryList() {
     return ListView(
       scrollDirection: Axis.vertical,
       shrinkWrap: true,
@@ -185,7 +176,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget _categoryCard(String svgPath, String title) {
+  Widget _categoryCard(String svgPath, String label) {
     return Padding(
       padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
       child: Container(
@@ -200,17 +191,13 @@ class _MainPageState extends State<MainPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              svgFile(svgPath),
-              Text('Category'),
+              SvgPicture.asset(
+                "images/ico_brain.svg",
+                color: Color(0xFF6991ff),
+              ),
+              Text(label),
             ],
           )),
-    );
-  }
-
-  Widget svgFile(String path){
-    return SvgPicture.asset(
-      "images/ico_brain.svg",color: Color(0xFF6991ff),
-      semanticsLabel: "test",
     );
   }
 }
