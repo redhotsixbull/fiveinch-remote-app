@@ -1,8 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" id="ico_weightlessness" width="60" height="60" viewBox="0 0 60 60">
     <defs>
-        <style>
-            .cls-2{fill:#fff;opacity:.87}
-        </style>
     </defs>
     <circle id="타원_5" cx="30" cy="30" r="30" fill="#fff" opacity="0.11"/>
     <path id="패스_298" d="M530.558 85.982a17.819 17.819 0 0 0 15.674 0 .309.309 0 0 0-.219-.578 29.775 29.775 0 0 1-15.236 0 .309.309 0 0 0-.219.578z" class="cls-2" transform="translate(-508.488 -47.011)"/>

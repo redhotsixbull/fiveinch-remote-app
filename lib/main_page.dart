@@ -168,27 +168,93 @@ class _MainPageState extends State<MainPage> {
               color: Colors.red,
             ),
             Container(
-              width: double.infinity,
-              height: (heightV - 264) / 3,
-              child: Row(
-                children: [
-                  Expanded(flex: 1, child: Container(
-                    decoration: buttonDesign.easyModeButtonDesign(),
-                    child: Center(
-                      child: Column(
-                        children: [
-
-                        ],
-                      ),
-                    ),
-                  )),
-                  Expanded(flex: 1, child: Container()),
-                  Expanded(flex: 1, child: Container()),
-                ],
-              ),
-            ),
+                width: double.infinity,
+                height: (heightV - 264) / 3,
+                child: _easyController()),
           ],
         ));
+  }
+
+  Widget _easyController() {
+    return Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: _easyControlButton("images/ico_weightlessness.svg","OFF"),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: _easyControlButton("images/ico_pause.svg","일시정지"),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: _easyControlBodyAngle("images/ico_bodyangle_up.svg", "전신각도"),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _easyControlButton(String path, String title) {
+    return Container(
+      decoration: buttonDesign.easyModeButtonDesign(),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              path,
+              color: Colors.white,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(title),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _easyControlBodyAngle(String path, String title) {
+    return Container(
+      decoration: buttonDesign.easyModeButtonDesign(),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.keyboard_arrow_up_rounded,size: 30,),
+            ),
+            Column(
+              children: [
+                SvgPicture.asset(
+                  path,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(title),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.keyboard_arrow_down_rounded,size:30,),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _categoryList() {

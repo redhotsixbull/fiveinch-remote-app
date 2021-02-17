@@ -1,8 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" id="ico_auto" width="50" height="50" viewBox="0 0 50 50">
     <defs>
-        <style>
-            .cls-2{fill:#a381ff;stroke:#373737;stroke-width:.8px}
-        </style>
     </defs>
     <g id="ico_auto-2" transform="translate(-59.668 -61.715)">
         <path id="패스_25" d="M68.8 84.96c1.99-14.114 19.589-18.992 28.346-7.86q2.588 3.255 5.2 6.529-.32-7.671-.643-15.323c-1.143 1.264-2.3 2.54-3.436 3.821-11.966-11.144-31.3-4.107-33.6 12.223 1.572.24 3.132.465 4.7.688" class="cls-2"/>
