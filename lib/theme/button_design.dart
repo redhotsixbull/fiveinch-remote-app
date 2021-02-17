@@ -12,7 +12,7 @@ class ButtonDesign{
     return BoxDecoration(
       color: Color(0xFF1e1e1e),
       borderRadius: BorderRadius.all(
-        Radius.circular(30.0),
+        Radius.circular(20.0),
       ),
     );
   }

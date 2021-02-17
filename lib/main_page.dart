@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> {
               SizedBox(
                 height: 20,
               ),
-              isBasic ? mainSector(heightV) : easyMode(heightV),
+              isBasic ? mainSector(heightV) : easyMode(heightV,widthV),
             ],
           ),
         ),
@@ -156,7 +156,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget easyMode(double heightV) {
+  Widget easyMode(double heightV,double widthV) {
     return Container(
         width: double.infinity,
         height: heightV - 264,
@@ -165,7 +165,7 @@ class _MainPageState extends State<MainPage> {
             Container(
               width: double.infinity,
               height: (heightV - 264) * 2 / 3,
-              color: Colors.red,
+              child: _easyModeCategoryList((heightV - 264) * 2 / 3,widthV),
             ),
             Container(
                 width: double.infinity,
@@ -253,6 +253,55 @@ class _MainPageState extends State<MainPage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _easyModeCategoryList(double heightV, double widthV){
+    return ListView(
+      scrollDirection: Axis.horizontal,
+      children: [
+        _easyModeCategoryCardColumn(heightV,widthV),
+        _easyModeCategoryCardColumn(heightV,widthV),
+        _easyModeCategoryCardColumn(heightV,widthV),
+        _easyModeCategoryCardColumn(heightV,widthV),
+        _easyModeCategoryCardColumn(heightV,widthV),
+        _easyModeCategoryCardColumn(heightV,widthV),
+
+      ],
+    );
+  }
+
+  Widget _easyModeCategoryCardColumn(double heightV, double widthV){
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+      child: Container(
+        width: widthV/2,
+        height: heightV/2,
+        child: Column(
+          children: [
+            Expanded(
+                flex: 1,
+                child: _easyModeCategoryCard()
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Expanded(
+              flex: 1,
+              child: _easyModeCategoryCard()
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _easyModeCategoryCard(){
+    return Container(
+      decoration: buttonDesign.easyModeButtonDesign(),
+      child: Center(
+        child: Text("추후 디자인 예정"),
       ),
     );
   }
