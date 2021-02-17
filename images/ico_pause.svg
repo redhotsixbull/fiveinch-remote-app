@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="ico_pause" width="60" height="60" viewBox="0 0 60 60">
+    <defs>
+        <style>
+            .cls-2{fill:#fff;opacity:.87}
+        </style>
+    </defs>
+    <circle id="타원_4" cx="30" cy="30" r="30" fill="#fff" opacity="0.11"/>
+    <path id="패스_33" d="M11.616 20.809a3.406 3.406 0 0 1-3.444 3.367 3.406 3.406 0 0 1-3.444-3.367V3.367A3.406 3.406 0 0 1 8.173 0a3.406 3.406 0 0 1 3.444 3.367z" class="cls-2" transform="translate(15.395 18.365)"/>
+    <path id="패스_34" d="M36.5 20.809a3.406 3.406 0 0 1-3.444 3.367 3.406 3.406 0 0 1-3.444-3.367V3.367A3.407 3.407 0 0 1 33.059 0 3.406 3.406 0 0 1 36.5 3.367z" class="cls-2" transform="translate(3.119 18.365)"/>
+</svg>

@@ -1,4 +1,5 @@
 //import 'package:flutter/cupertino.dart';
+import 'package:five_inch_remote_app/theme/button_design.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -9,6 +10,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   bool isBasic = false;
+
   @override
   Widget build(BuildContext context) {
     double widthV = MediaQuery.of(context).size.width;
@@ -27,13 +29,13 @@ class _MainPageState extends State<MainPage> {
               SizedBox(
                 height: 20,
               ),
-              isBasic?mainSector(heightV):easyMode(heightV),
+              isBasic ? mainSector(heightV) : easyMode(heightV),
             ],
           ),
         ),
       ),
       floatingActionButton: InkWell(
-        onTap: (){
+        onTap: () {
           setState(() {
             isBasic = !isBasic;
           });
@@ -156,11 +158,37 @@ class _MainPageState extends State<MainPage> {
 
   Widget easyMode(double heightV) {
     return Container(
-      width: double.infinity,
-      height: heightV - 264,
-      color: Colors.white,
-      child: Text("123"),
-    );
+        width: double.infinity,
+        height: heightV - 264,
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: (heightV - 264) * 2 / 3,
+              color: Colors.red,
+            ),
+            Container(
+              width: double.infinity,
+              height: (heightV - 264) / 3,
+              child: Row(
+                children: [
+                  Expanded(flex: 1, child: Container(
+                    decoration: buttonDesign.easyModeButtonDesign(),
+                    child: Center(
+                      child: Column(
+                        children: [
+
+                        ],
+                      ),
+                    ),
+                  )),
+                  Expanded(flex: 1, child: Container()),
+                  Expanded(flex: 1, child: Container()),
+                ],
+              ),
+            ),
+          ],
+        ));
   }
 
   Widget _categoryList() {

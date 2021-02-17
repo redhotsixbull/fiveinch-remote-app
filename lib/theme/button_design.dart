@@ -7,5 +7,14 @@ class ButtonDesign{
      color: color,
    );
   }
+
+  easyModeButtonDesign(){
+    return BoxDecoration(
+      color: Color(0xFF1e1e1e),
+      borderRadius: BorderRadius.all(
+        Radius.circular(30.0),
+      ),
+    );
+  }
 }
 final buttonDesign = ButtonDesign();
