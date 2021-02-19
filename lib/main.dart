@@ -1,4 +1,5 @@
 
+import 'package:five_inch_remote_app/page/qucik_menu.dart';
 import 'package:five_inch_remote_app/page/widgettest_page.dart';
 import 'package:flutter/material.dart';
 import 'main_page.dart';
@@ -17,7 +18,10 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xff121212),
         scaffoldBackgroundColor: Color(0xff121212),
       ),
-      home: WidgetTest(),
+      home: MainPage(),
+      routes: <String, WidgetBuilder>{
+        '/quickMenu': (BuildContext context) => QuickMenu(),
+      }
     );
   }
 

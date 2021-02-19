@@ -3,6 +3,8 @@ import 'package:five_inch_remote_app/theme/button_design.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'common/common.dart';
+
 class MainPage extends StatefulWidget {
   @override
   _MainPageState createState() => _MainPageState();
@@ -37,7 +39,7 @@ class _MainPageState extends State<MainPage> {
       floatingActionButton: InkWell(
         onTap: () {
           setState(() {
-            isBasic = !isBasic;
+            common.pagePushReplaceRoute(context,"");
           });
         },
         child: Container(
