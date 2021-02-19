@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
       floatingActionButton: InkWell(
         onTap: () {
           setState(() {
-            common.pagePushReplaceRoute(context,"");
+            common.pagePushRoute(context,"quickMenu");
           });
         },
         child: Container(

@@ -13,7 +13,7 @@ class _QuickMenuState extends State<QuickMenu> {
       floatingActionButton: InkWell(
         onTap: () {
           setState(() {
-
+            Navigator.of(context).pop();
           });
         },
         child: Container(
