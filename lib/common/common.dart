@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Common {
@@ -12,6 +11,18 @@ class Common {
 
   showDialog(BuildContext context){
 
+  }
+
+  test(BuildContext context){
+    return ListView.separated(
+      itemCount: 25,
+      separatorBuilder: (context, int index) => Container(width: double.infinity,height: 3,color: Colors.red,),
+      itemBuilder: (context, int index) {
+        return ListTile(
+          title: Text('item $index'),
+        );
+      },
+    );
   }
 }
 
