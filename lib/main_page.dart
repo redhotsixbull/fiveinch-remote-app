@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> {
               SizedBox(
                 height: 20,
               ),
-              isBasic ? mainSector(heightV) : easyMode(heightV,widthV),
+              isBasic ? mainSector(heightV) : easyMode(heightV, widthV),
             ],
           ),
         ),
@@ -46,7 +46,7 @@ class _MainPageState extends State<MainPage> {
             color: Color(0xff272727),
             child: Center(
                 child: Icon(
-              Icons.arrow_upward_rounded,
+              Icons.arrow_upward,
               size: 40,
               color: Colors.white,
             ))),
@@ -156,7 +156,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget easyMode(double heightV,double widthV) {
+  Widget easyMode(double heightV, double widthV) {
     return Container(
         width: double.infinity,
         height: heightV - 264,
@@ -165,38 +165,39 @@ class _MainPageState extends State<MainPage> {
             Container(
               width: double.infinity,
               height: (heightV - 264) * 2 / 3,
-              child: _easyModeCategoryList((heightV - 264) * 2 / 3,widthV),
+              child: _easyModeCategoryList((heightV - 264) * 2 / 3, widthV),
             ),
             Container(
                 width: double.infinity,
                 height: (heightV - 264) / 3,
-                child: _easyController()),
+                child: _easyController((heightV - 264) / 3)),
           ],
         ));
   }
 
-  Widget _easyController() {
+  Widget _easyController(double heightV) {
     return Row(
       children: [
         Expanded(
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: _easyControlButton("images/ico_weightlessness.svg","OFF"),
+            child: _easyControlButton("images/ico_weightlessness.svg", "OFF"),
           ),
         ),
         Expanded(
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: _easyControlButton("images/ico_pause.svg","일시정지"),
+            child: _easyControlButton("images/ico_pause.svg", "일시정지"),
           ),
         ),
         Expanded(
           flex: 1,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: _easyControlBodyAngle("images/ico_bodyangle_up.svg", "전신각도"),
+            child: _easyControlBodyAngle(
+                "images/ico_bodyangle_up.svg", "전신각도", heightV),
           ),
         ),
       ],
@@ -224,7 +225,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget _easyControlBodyAngle(String path, String title) {
+  Widget _easyControlBodyAngle(String path, String title, double heightV) {
     return Container(
       decoration: buttonDesign.easyModeButtonDesign(),
       child: Center(
@@ -232,24 +233,34 @@ class _MainPageState extends State<MainPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.keyboard_arrow_up_rounded,size: 30,),
+              padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+              child: Icon(
+                Icons.keyboard_arrow_up,
+                size: 30,
+              ),
             ),
             Column(
               children: [
-                SvgPicture.asset(
-                  path,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  height: 10,
-                ),
+                heightV > 200
+                    ? SvgPicture.asset(
+                        path,
+                        color: Colors.white,
+                      )
+                    : Container(),
+                heightV > 200
+                    ? SizedBox(
+                        height: 10,
+                      )
+                    : Container(),
                 Text(title),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.keyboard_arrow_down_rounded,size:30,),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+              child: Icon(
+                Icons.keyboard_arrow_down,
+                size: 30,
+              ),
             ),
           ],
         ),
@@ -257,47 +268,40 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  Widget _easyModeCategoryList(double heightV, double widthV){
+  Widget _easyModeCategoryList(double heightV, double widthV) {
     return ListView(
       scrollDirection: Axis.horizontal,
       children: [
-        _easyModeCategoryCardColumn(heightV,widthV),
-        _easyModeCategoryCardColumn(heightV,widthV),
-        _easyModeCategoryCardColumn(heightV,widthV),
-        _easyModeCategoryCardColumn(heightV,widthV),
-        _easyModeCategoryCardColumn(heightV,widthV),
-        _easyModeCategoryCardColumn(heightV,widthV),
-
+        _easyModeCategoryCardColumn(heightV, widthV),
+        _easyModeCategoryCardColumn(heightV, widthV),
+        _easyModeCategoryCardColumn(heightV, widthV),
+        _easyModeCategoryCardColumn(heightV, widthV),
+        _easyModeCategoryCardColumn(heightV, widthV),
+        _easyModeCategoryCardColumn(heightV, widthV),
       ],
     );
   }
 
-  Widget _easyModeCategoryCardColumn(double heightV, double widthV){
+  Widget _easyModeCategoryCardColumn(double heightV, double widthV) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
       child: Container(
-        width: widthV/2,
-        height: heightV/2,
+        width: widthV / 2,
+        height: heightV / 2,
         child: Column(
           children: [
-            Expanded(
-                flex: 1,
-                child: _easyModeCategoryCard()
-            ),
+            Expanded(flex: 1, child: _easyModeCategoryCard()),
             SizedBox(
               height: 10,
             ),
-            Expanded(
-              flex: 1,
-              child: _easyModeCategoryCard()
-            ),
+            Expanded(flex: 1, child: _easyModeCategoryCard()),
           ],
         ),
       ),
     );
   }
 
-  Widget _easyModeCategoryCard(){
+  Widget _easyModeCategoryCard() {
     return Container(
       decoration: buttonDesign.easyModeButtonDesign(),
       child: Center(
