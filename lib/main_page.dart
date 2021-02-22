@@ -236,7 +236,7 @@ class _MainPageState extends State<MainPage> {
               padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
               child: Icon(
                 Icons.keyboard_arrow_up,
-                size: 30,
+                size: 20,
               ),
             ),
             Column(
@@ -259,7 +259,7 @@ class _MainPageState extends State<MainPage> {
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
               child: Icon(
                 Icons.keyboard_arrow_down,
-                size: 30,
+                size: 20,
               ),
             ),
           ],
